@@ -14,6 +14,15 @@ func Hello2(name string) (string, error) {
 
 func RandomHello(name string) (string, error) {
 	// var formats []string
-	formats := []string{"Hi, %s", "Howdy, %s", "Wrong un"}
+	formats := []string{"Hi, %s", "Dowdy, %s"}
 	return Hello(name, formats[rand.Intn(len(formats))])
+}
+
+func Hellos(names []string) map[string]string {
+	hellos := make(map[string]string, len(names))
+	for _, name := range names {
+		hellos[name], _ = RandomHello(name)
+	}
+	return hellos
+
 }
